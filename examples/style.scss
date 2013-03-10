@@ -1,10 +1,11 @@
 @import "media-query";
 
 // Define our breakpoints
-$small: media(small, max-width, 480px);
-$medium: media(medium, max-width, 700px);
-$large: media(large, max-width, 1024px);
-$portrait: media(portrait, orientation, portrait);
+$small: 'min-width: 0px';
+$medium: 'min-width: 480px';
+$large: 'min-width: 1024px';
+$portrait: 'orientation: portrait';
+$short: 'max-height: 500px';
 
 
 .bar {
@@ -14,7 +15,7 @@ $portrait: media(portrait, orientation, portrait);
 	 * @large & @portrait
 	 */
 
-	@include media(large portrait) {
+	@include media($large $portrait) {
 		color: red;
 	}
 }
@@ -28,7 +29,7 @@ $portrait: media(portrait, orientation, portrait);
 	 * @large
 	 */
 
-	@include media(large portrait max-height:300px) {
+	@include media($large $portrait $short, $small) {
 		color: green;
 	}
 }
