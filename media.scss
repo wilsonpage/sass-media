@@ -1,10 +1,18 @@
 
-// MEDIA
+ /**                                                               __                                                                          /\ \  __
+ * SASS-MEDIA
+ *
+ * Media query shorthand sugar for SASS.
+ *
+ * @version 0.1.0
+ * @author Wilson Page <wilsonpage@me.com>
+ * @licence MIT
+ */
 
-// Outputs a media query by
-// interpretting the spaces
-// and `and` and commas as
-// commas.
+// Outputs a media query
+// by interpretting the
+// spaces and `and` and
+// commas as commas.
 @mixin media($args...) {
 	$list: ();
 
