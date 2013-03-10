@@ -1,4 +1,4 @@
-@import "media";
+@import "media-query";
 
 // Define our breakpoints
 $small: 'min-width: 0px';
@@ -15,7 +15,7 @@ $short: 'max-height: 500px';
 	 * @large & @portrait
 	 */
 
-	@include media($medium, $large) {
+	@include media($large $portrait) {
 		color: red;
 	}
 }
