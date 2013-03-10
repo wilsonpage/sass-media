@@ -12,6 +12,8 @@ Prints a media query. Spaces resolve to `and` and commas resolve to `,`.
 ## USAGE
 
 ```scss
+@import 'media';
+
 $medium: 'min-width: 480px';
 $large: 'min-width: 1024px';
 $portrait: 'orientation: portrait';
