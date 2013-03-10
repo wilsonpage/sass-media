@@ -11,7 +11,7 @@ Prints a media query. Spaces resolve to `and` and commas resolve to `,`.
 
 ## USAGE
 
-```css
+```scss
 $small: 'min-width: 0px';
 $medium: 'min-width: 480px';
 $large: 'min-width: 1024px';
