@@ -12,11 +12,9 @@ Prints a media query. Spaces resolve to `and` and commas resolve to `,`.
 ## USAGE
 
 ```scss
-$small: 'min-width: 0px';
 $medium: 'min-width: 480px';
 $large: 'min-width: 1024px';
 $portrait: 'orientation: portrait';
-$short: 'max-height: 500px';
 
 @include media($medium) { ... }
 // => @media (min-width: 480px) { ... }
