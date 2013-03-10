@@ -14,15 +14,15 @@
 // spaces and `and` and
 // commas as commas.
 @mixin media($args...) {
-	$list: ();
+  $list: ();
 
-	@each $arg in $args {
-		$list: append($list, and-media($arg), comma);
-	}
+  @each $arg in $args {
+    $list: append($list, and-media($arg), comma);
+  }
 
-	@media #{$list} {
-		@content;
-	}
+  @media #{$list} {
+    @content;
+  }
 }
 
 // Accepts a space seprated list
@@ -36,23 +36,23 @@
 //   // => (min-width: 480px) and (orientation: portrait)
 //
 @function and-media($arg) {
-	$list: join($arg, null, comma);
-	$length: length($list) - 1;
-	$query: '';
-	$i: 0;
+  $list: join($arg, null, comma);
+  $length: length($list) - 1;
+  $query: '';
+  $i: 0;
 
-	@each $item in $list {
-		@if ($item) {
-			$i: $i + 1;
-			$value: '(' + $item + ')';
+  @each $item in $list {
+    @if ($item) {
+      $i: $i + 1;
+      $value: '(' + $item + ')';
 
-			@if ($i < $length) {
-				$value: $value + ' and ';
-			}
+      @if ($i < $length) {
+        $value: $value + ' and ';
+      }
 
-			$query: $query + $value;
-		}
-	}
+      $query: $query + $value;
+    }
+  }
 
-	@return unquote($query);
+  @return unquote($query);
 }

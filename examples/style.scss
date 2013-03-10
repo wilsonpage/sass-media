@@ -9,27 +9,27 @@ $short: 'max-height: 500px';
 
 
 .bar {
-	color: blue;
+  color: blue;
 
-	/**
-	 * @large & @portrait
-	 */
+  /**
+   * @large & @portrait
+   */
 
-	@include media($medium, $large) {
-		color: red;
-	}
+  @include media($medium, $large) {
+    color: red;
+  }
 }
 
 
 .foo {
-	color: purple;
+  color: purple;
 
-	/**
-	 * @small,
-	 * @large
-	 */
+  /**
+   * @small,
+   * @large
+   */
 
-	@include media($large $portrait $short, $small) {
-		color: green;
-	}
+  @include media($large $portrait $short, $small) {
+    color: green;
+  }
 }
