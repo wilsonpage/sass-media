@@ -1,0 +1,13 @@
+{
+	"name": "sass-media",
+	"description": "Media query shorthand sugar",
+	"version": "0.1.0",
+	"keywords": "sass",
+	"files": [
+		"media.scss"
+	],
+	"ignore": [
+		"examples/"
+	],
+	"licence": "MIT"
+}
