@@ -1,8 +1,10 @@
 
-$media-names: ();
-$media-rules: ();
+// MEDIA
 
-
+// Outputs a media query by
+// interpretting the spaces
+// and `and` and commas as
+// commas.
 @mixin media($args...) {
 	$list: ();
 
@@ -15,28 +17,26 @@ $media-rules: ();
 	}
 }
 
-/**
- * Takes a space seprated list
- * of breakpoint names and returns
- * a bracketed and sperated string
- * ready tp be used after `@media`.
- *
- * Example:
- *
- *   and-media(large portrait);
- *   // => (min-width: 480px) and (orientation: portrait)
- */
+// Accepts a space seprated list
+// of breakpoints and returns
+// a bracketed and sperated string
+// ready tp be used after `@media`.
+//
+// Example:
+//
+//   and-media(large portrait);
+//   // => (min-width: 480px) and (orientation: portrait)
+//
 @function and-media($arg) {
-	$list: join(unquote($arg), null, comma);
+	$list: join($arg, null, comma);
 	$length: length($list) - 1;
 	$query: '';
 	$i: 0;
 
-
 	@each $item in $list {
 		@if ($item) {
 			$i: $i + 1;
-			$value: '(' + value($item) + ')';
+			$value: '(' + $item + ')';
 
 			@if ($i < $length) {
 				$value: $value + ' and ';
@@ -47,34 +47,4 @@ $media-rules: ();
 	}
 
 	@return unquote($query);
-}
-
-@function media-value($name) {
-	$index: index($names, $name);
-	@return nth($rules, $index);
-}
-
-/**
- * Defines a media breakpoint.
- *
- * Example:
- *
- *   $largescreen: media(large, min-width, 800px);
- *
- * @param  {String} $name
- * @param  {String} $property
- * @param  {String} $value
- * @return {String}
- * @api public
- */
-@function media($name, $property, $value) {
-	$index: index($names, $names);
-	$rule: $property + ':' + $value;
-
-	@if ($index == false) {
-		$names: append($names, $name, comma);
-		$rules: append($rules, $rule, comma);
-	}
-
-	@return $value;
 }
