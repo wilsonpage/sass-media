@@ -1,0 +1,29 @@
+@import '../../media';
+@import 'media-definitions';
+
+
+.bar {
+  color: blue;
+
+  /**
+   * @large && @portrait
+   */
+
+  @include media('medium', 'large') {
+    color: red;
+  }
+}
+
+
+.foo {
+  color: purple;
+
+  /**
+   * @small && @large,
+   * @portrait && @tall
+   */
+
+  @include media(small large, portrait tall) {
+    color: green;
+  }
+}

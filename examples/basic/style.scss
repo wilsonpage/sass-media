@@ -1,4 +1,4 @@
-@import "media";
+@import "../../media";
 
 // Define our breakpoints
 $small: 'min-width: 0px';
@@ -29,7 +29,7 @@ $short: 'max-height: 500px';
    * @large
    */
 
-  @include media($large $portrait $short, $small) {
+  @include media($small $large, $portrait $short) {
     color: green;
   }
 }

@@ -1,0 +1,7 @@
+
+// Define our breakpoints
+$small: media-define('small', 'min-width: 0px');
+$medium: media-define('medium', 'min-width: 480px');
+$large: media-define('large', 'min-width: 1024px');
+$portrait: media-define('portrait', 'orientation: portrait');
+$tall: media-define('tall', 'min-height: 500px');
