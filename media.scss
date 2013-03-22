@@ -9,6 +9,20 @@
  * @licence MIT
  */
 
+$media-defined-names: ();
+$media-defined-values: ();
+
+
+@function media-value($name) {
+  $index: index($media-defined-names, $name);
+
+  @if ($index == false) {
+    @return false;
+  } @else {
+    @return nth($media-defined-values, $index);
+  }
+}
+
 // Outputs a media query
 // by interpretting the
 // spaces and `and` and
@@ -44,7 +58,16 @@
   @each $item in $list {
     @if ($item) {
       $i: $i + 1;
-      $value: '(' + $item + ')';
+
+      // Attempt to match the value
+      // with a defined key,
+      $value: media-value($item);
+      @if ($value) {
+        $value: '(' + $value + ')';
+      } @else {
+         $value: '(' + $item + ')';
+      }
+
 
       @if ($i < $length) {
         $value: $value + ' and ';
@@ -55,4 +78,11 @@
   }
 
   @return unquote($query);
+}
+
+
+@function media-define($name, $rule) {
+  $media-defined-names: append($media-defined-names, $name);
+  $media-defined-values: append($media-defined-values, $rule);
+  @return $rule;
 }
